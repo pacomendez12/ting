@@ -1,0 +1,1 @@
+When compiling under Sun OS add "-lrt" linker key.

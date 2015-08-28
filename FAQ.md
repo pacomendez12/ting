@@ -1,0 +1,4 @@
+# Frequently Asked Questions #
+
+  1. **Why isn't there a Thread::Kill() method?** Because it is a dirty way to terminate thread. Thread should terminate gracefully, freeing all its allocated resources. So, the correct way is to ask a thread to finish (for example, using inter-thread communication means like message queue or semaphore) and then wait for it to finish with Thread::Join() method.The Thread::Kill() is not provided to force programmers to do the right way.
+  1. **Why isn't it possible to access thread state and there is no method like Thread::IsRunning()?** Because it is not thread-safe to rely on return value of methods like Thread::IsRunning() because it may return true while thread terminates the very next moment. If, at some point in the program, it is not known whether the thread is started (running) or not, then, most likely, the program is badly designed. Programmer should know better which threads are started and which are not.
